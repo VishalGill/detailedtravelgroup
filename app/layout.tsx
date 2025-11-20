@@ -1,26 +1,28 @@
 import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     template: "%s | Detailed Travel Group",
-    default: "Detailed Travel Group - Luxury Travel & Concierge Services",
+    default: "Detailed Travel Group - Premier Luxury Concierge",
   },
-  description: "Premier luxury travel concierge offering black car service, private jet charters, restaurant reservations, VIP airport services, and personalized travel experiences.",
-  keywords: ["luxury travel", "concierge service", "private jet", "black car service", "VIP airport service", "restaurant reservations", "luxury transportation"],
-  openGraph: {
-    title: "Detailed Travel Group - Luxury Travel & Concierge Services",
-    description: "Premier luxury travel concierge offering black car service, private jet charters, restaurant reservations, VIP airport services, and personalized travel experiences.",
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Detailed Travel Group - Luxury Travel & Concierge Services",
-    description: "Premier luxury travel concierge offering black car service, private jet charters, restaurant reservations, VIP airport services, and personalized travel experiences.",
-  },
+  description: "New York's premier luxury concierge service with global reach. Private aviation, executive protection, and exclusive lifestyle management.",
+  keywords: ["luxury concierge", "private aviation", "executive protection", "NYC concierge", "lifestyle management"],
 };
 
 export default function RootLayout({
@@ -29,8 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans">
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body className="font-sans bg-background text-text-main antialiased">
         <Header />
         <main className="min-h-screen">
           {children}

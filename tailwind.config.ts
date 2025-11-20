@@ -9,21 +9,33 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        playfair: ['Playfair Display', 'serif'],
+        playfair: ['var(--font-playfair)', 'serif'],
+        sans: ['var(--font-inter)', 'sans-serif'],
       },
       colors: {
-        neutral: {
-          50: '#fafafa',
-          100: '#f5f5f5',
-          200: '#e5e5e5',
-          300: '#d4d4d4',
-          400: '#a3a3a3',
-          500: '#737373',
-          600: '#525252',
-          700: '#404040',
-          800: '#262626',
-          900: '#171717',
+        primary: {
+          DEFAULT: '#0A192F', // Deep Navy
+          light: '#172A46',
+          dark: '#020C1B',
         },
+        secondary: {
+          DEFAULT: '#C5A059', // Champagne Gold
+          light: '#E5D1B8',
+          dark: '#8C7035',
+        },
+        background: {
+          DEFAULT: '#FFFFFF',
+          off: '#F9FAFB',
+        },
+        text: {
+          main: '#1A1A1A',
+          muted: '#666666',
+          light: '#FFFFFF',
+        }
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'hero-gradient': 'linear-gradient(to bottom, rgba(10, 25, 47, 0.3), rgba(10, 25, 47, 0.7))',
       },
     },
   },
