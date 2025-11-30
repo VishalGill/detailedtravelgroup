@@ -8,38 +8,41 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        black: '#000000',
+        white: '#ffffff',
+        'off-white': '#f5f5f5',
+        'zinc-900': '#171717',
+      },
       fontFamily: {
-        playfair: ['var(--font-playfair)', 'serif'],
+        serif: ['var(--font-playfair)', 'serif'],
+        mono: ['var(--font-jetbrains)', 'monospace'],
         sans: ['var(--font-inter)', 'sans-serif'],
       },
-      colors: {
-        primary: {
-          DEFAULT: '#0A192F', // Deep Navy
-          light: '#172A46',
-          dark: '#020C1B',
+      letterSpacing: {
+        'widest-xl': '0.25em',
+      },
+      animation: {
+        'fade-in-slow': 'fadeIn 1.5s ease-out forwards',
+        'slide-up': 'slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'marquee': 'marquee 25s linear infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
-        secondary: {
-          DEFAULT: '#C5A059', // Champagne Gold
-          light: '#E5D1B8',
-          dark: '#8C7035',
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(40px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        background: {
-          DEFAULT: '#FFFFFF',
-          off: '#F9FAFB',
-        },
-        text: {
-          main: '#1A1A1A',
-          muted: '#666666',
-          light: '#FFFFFF',
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
         }
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(to bottom, rgba(10, 25, 47, 0.3), rgba(10, 25, 47, 0.7))',
-      },
+      }
     },
   },
   plugins: [],
 };
-
 export default config;

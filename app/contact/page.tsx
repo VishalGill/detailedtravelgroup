@@ -1,6 +1,7 @@
 'use client';
 
-import { Metadata } from 'next';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import { useState } from 'react';
 
 export default function ContactPage() {
@@ -8,271 +9,203 @@ export default function ContactPage() {
     name: '',
     email: '',
     phone: '',
-    subject: '',
+    company: '',
+    service: '',
     message: '',
+    urgent: false
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('/api/quote', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-      if (response.ok) {
-        alert('Thank you for contacting us! We will respond shortly.');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: '',
-        });
-      } else {
-        alert('Something went wrong. Please try calling us directly.');
-      }
-    } catch (error) {
-      alert('Something went wrong. Please try calling us directly.');
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const toggleUrgent = () => {
+    setFormData(prev => ({ ...prev, urgent: !prev.urgent }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    
+    // Placeholder logic: simulate API call
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsSubmitted(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1500);
   };
 
   return (
-    <div className="pt-[110px] pb-20">
-      <div className="max-w-[1400px] mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-playfair font-extrabold mb-6">
-            Get In Touch
-          </h1>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            Our concierge team is available 24/7 to assist with all your luxury travel needs
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div>
-            <h2 className="text-3xl font-playfair font-bold mb-8">
-              Contact Information
-            </h2>
-
-            <div className="space-y-6 mb-12">
-              <div className="bg-white border border-neutral-200 rounded-2xl p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="text-2xl">📞</div>
-                  <div>
-                    <h3 className="font-semibold text-black mb-1">Phone</h3>
-                    <a
-                      href="tel:+1-555-DTG-LUXE"
-                      className="text-neutral-600 hover:text-black transition-colors"
-                    >
-                      +1 (555) DTG-LUXE
-                    </a>
-                    <p className="text-sm text-neutral-500 mt-1">
-                      Available 24/7 for immediate assistance
-                    </p>
-                  </div>
-                </div>
+    <main className="min-h-screen bg-black text-white">
+      <Header />
+      
+      <div className="pt-40 pb-20 px-6 md:px-24">
+        <span className="font-mono text-xs text-white/50 uppercase tracking-widest block mb-4">
+          CONTACT / INQUIRY
+        </span>
+        <h1 className="font-serif text-6xl md:text-9xl text-white mb-12">
+          INITIATE<br />REQUEST
+        </h1>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          {/* Contact Info */}
+          <div className="lg:col-span-4 space-y-12">
+            <p className="font-sans text-xl font-light text-white/60 border-l border-white/20 pl-6">
+              Our concierge desk operates 24/7/365. For immediate assistance, please call directly.
+            </p>
+            
+            <div className="space-y-8">
+              <div>
+                <h3 className="font-mono text-xs text-white/50 uppercase tracking-widest mb-2">Phone</h3>
+                <a href="tel:+18884200177" className="font-serif text-2xl hover:text-white/80 transition-colors">
+                  +1 (888) 420-0177
+                </a>
               </div>
-
-              <div className="bg-white border border-neutral-200 rounded-2xl p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="text-2xl">✉️</div>
-                  <div>
-                    <h3 className="font-semibold text-black mb-1">Email</h3>
-                    <a
-                      href="mailto:concierge@detailedtravelgroup.com"
-                      className="text-neutral-600 hover:text-black transition-colors"
-                    >
-                      concierge@detailedtravelgroup.com
-                    </a>
-                    <p className="text-sm text-neutral-500 mt-1">
-                      We typically respond within 2 hours
-                    </p>
-                  </div>
-                </div>
+              <div>
+                <h3 className="font-mono text-xs text-white/50 uppercase tracking-widest mb-2">Email</h3>
+                <a href="mailto:concierge@detailedtravel.com" className="font-serif text-2xl hover:text-white/80 transition-colors">
+                  concierge@detailedtravel.com
+                </a>
               </div>
-
-              <div className="bg-white border border-neutral-200 rounded-2xl p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="text-2xl">🕐</div>
-                  <div>
-                    <h3 className="font-semibold text-black mb-1">Hours</h3>
-                    <p className="text-neutral-600">24/7 Concierge Service</p>
-                    <p className="text-sm text-neutral-500 mt-1">
-                      Always here when you need us
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white border border-neutral-200 rounded-2xl p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="text-2xl">📍</div>
-                  <div>
-                    <h3 className="font-semibold text-black mb-1">Location</h3>
-                    <p className="text-neutral-600">New York, NY</p>
-                    <p className="text-sm text-neutral-500 mt-1">
-                      Serving clients worldwide
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-neutral-50 rounded-2xl p-8">
-              <h3 className="text-xl font-playfair font-bold mb-4">
-                Prefer to Talk?
-              </h3>
-              <p className="text-neutral-600 mb-6">
-                Our luxury travel specialists are standing by to discuss your travel needs and create a personalized experience.
-              </p>
-              <a
-                href="tel:+1-555-DTG-LUXE"
-                className="inline-flex items-center bg-black text-white rounded-xl px-6 py-3 font-semibold hover:bg-neutral-800 transition-colors"
-              >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-                Call Now
-              </a>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-white border border-neutral-200 rounded-2xl p-8">
-            <h2 className="text-3xl font-playfair font-bold mb-6">
-              Send Us a Message
-            </h2>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-semibold text-black mb-2"
+          {/* Form or Success Message */}
+          <div className="lg:col-span-8">
+            {isSubmitted ? (
+              <div className="border border-white/20 p-12 text-center animate-fade-in-slow">
+                <h3 className="font-serif text-4xl mb-4">Request Received</h3>
+                <p className="font-sans text-white/60 mb-8">
+                  Your inquiry has been routed to our concierge desk. <br />
+                  A dedicated lifestyle manager will contact you shortly at {formData.email}.
+                </p>
+                <button 
+                  onClick={() => setIsSubmitted(false)}
+                  className="text-xs font-mono uppercase tracking-widest border-b border-white/50 pb-1 hover:text-white/70"
                 >
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  required
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="w-full border border-neutral-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all"
-                  placeholder="John Smith"
-                />
+                  Submit Another Request
+                </button>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-8 border-t border-white/20 pt-12 relative">
+                {isLoading && (
+                  <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-10 flex items-center justify-center">
+                    <div className="w-12 h-12 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                  </div>
+                )}
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="font-mono text-xs text-white/50 uppercase tracking-widest">Full Name</label>
+                    <input 
+                      type="text" 
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-b border-white/20 py-4 text-white focus:border-white focus:outline-none transition-colors rounded-none"
+                      placeholder="JONATHAN DOE"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="font-mono text-xs text-white/50 uppercase tracking-widest">Company (Optional)</label>
+                    <input 
+                      type="text" 
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-b border-white/20 py-4 text-white focus:border-white focus:outline-none transition-colors rounded-none"
+                      placeholder="GLOBAL CORP"
+                    />
+                  </div>
+                </div>
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-semibold text-black mb-2"
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="font-mono text-xs text-white/50 uppercase tracking-widest">Email Address</label>
+                    <input 
+                      type="email" 
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-b border-white/20 py-4 text-white focus:border-white focus:outline-none transition-colors rounded-none"
+                      placeholder="JONATHAN@DOMAIN.COM"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="font-mono text-xs text-white/50 uppercase tracking-widest">Phone Number</label>
+                    <input 
+                      type="tel" 
+                      name="phone"
+                      required
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-b border-white/20 py-4 text-white focus:border-white focus:outline-none transition-colors rounded-none"
+                      placeholder="+1 (555) 000-0000"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="font-mono text-xs text-white/50 uppercase tracking-widest">Service Interest</label>
+                  <select 
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="w-full bg-black border-b border-white/20 py-4 text-white focus:border-white focus:outline-none transition-colors rounded-none appearance-none"
+                  >
+                    <option value="">SELECT A SERVICE</option>
+                    <option value="transportation">Transportation & Logistics</option>
+                    <option value="events">Major Events & Access</option>
+                    <option value="security">Executive Protection</option>
+                    <option value="lifestyle">Lifestyle Management</option>
+                    <option value="membership">Membership Inquiry</option>
+                    <option value="other">Other Request</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="font-mono text-xs text-white/50 uppercase tracking-widest">Request Details</label>
+                  <textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="w-full bg-transparent border-b border-white/20 py-4 text-white focus:border-white focus:outline-none transition-colors rounded-none resize-none"
+                    placeholder="PLEASE DESCRIBE YOUR REQUIREMENTS..."
+                  />
+                </div>
+
+                <div className="flex items-center gap-4 pt-4">
+                  <button 
+                    type="button"
+                    onClick={toggleUrgent}
+                    className={`w-12 h-6 rounded-full relative transition-colors ${formData.urgent ? 'bg-red-600' : 'bg-white/20'}`}
+                  >
+                    <span className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform ${formData.urgent ? 'left-7' : 'left-1'}`} />
+                  </button>
+                  <span className="font-mono text-xs uppercase tracking-widest text-white/70">Urgent Request (Response &lt; 15 mins)</span>
+                </div>
+
+                <button 
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full bg-white text-black py-6 mt-8 font-mono text-sm uppercase tracking-[0.2em] hover:bg-white/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="w-full border border-neutral-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all"
-                  placeholder="john@example.com"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-semibold text-black mb-2"
-                >
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  value={formData.phone}
-                  onChange={(e) =>
-                    setFormData({ ...formData, phone: e.target.value })
-                  }
-                  className="w-full border border-neutral-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all"
-                  placeholder="+1 (555) 000-0000"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-semibold text-black mb-2"
-                >
-                  Subject *
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  required
-                  value={formData.subject}
-                  onChange={(e) =>
-                    setFormData({ ...formData, subject: e.target.value })
-                  }
-                  className="w-full border border-neutral-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all"
-                  placeholder="How can we help you?"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-semibold text-black mb-2"
-                >
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  rows={6}
-                  required
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  className="w-full border border-neutral-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all resize-none"
-                  placeholder="Tell us about your travel needs..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-black text-white rounded-xl px-8 py-4 font-semibold hover:bg-neutral-800 transition-colors"
-              >
-                Send Message
-              </button>
-
-              <p className="text-xs text-neutral-500 text-center">
-                By submitting, you agree to our Privacy Policy and Terms of Service
-              </p>
-            </form>
+                  {isLoading ? 'Processing...' : 'Submit Inquiry'}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
-    </div>
+
+      <Footer />
+    </main>
   );
 }

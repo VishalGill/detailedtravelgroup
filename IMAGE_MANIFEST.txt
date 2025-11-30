@@ -1,0 +1,71 @@
+# IMAGE MANIFEST - DETAILED TRAVEL GROUP
+# These images are required to replace the CSS placeholders.
+# Style: High-contrast Black & White, Grainy, Editorial, "Old Money" aesthetic.
+# Format: JPG or WEBP. Max size 200KB each.
+
+# --- HOME ---
+/images/nyc-cityscape.jpg
+- Description: Dark, moody aerial shot of NYC skyline or street level with motion blur.
+- Location: Homepage Hero Background.
+
+# --- SERVICES / TRANSPORTATION ---
+/images/services/chauffeur-hero.jpg
+- Description: Detail shot of a black Mercedes S-Class or Escalade door/interior. Minimalist.
+- Location: Chauffeur Services Hero.
+
+/images/services/airport-hero.jpg
+- Description: Abstract shot of a private jet wing or tarmac markings. Or a sleek airport lounge.
+- Location: Airport Concierge Hero.
+
+/images/services/fleet-sclass.jpg
+- Description: Exterior of Black Mercedes S-Class.
+- Location: Fleet section.
+
+/images/services/fleet-escalade.jpg
+- Description: Exterior of Black Cadillac Escalade.
+- Location: Fleet section.
+
+# --- SERVICES / LIFESTYLE ---
+/images/services/dining.jpg
+- Description: Dimly lit fine dining table setting. White tablecloth, crystal glass, dark background.
+- Location: Dining Reservations page.
+
+/images/services/shopping.jpg
+- Description: Luxury boutique interior or detail of a high-end watch/bag.
+- Location: Personal Shopping page.
+
+/images/services/entertainment.jpg
+- Description: Concert crowd silhouette or stadium lights in B&W.
+- Location: Entertainment Access page.
+
+/images/services/wellness.jpg
+- Description: Minimalist spa interior, water texture, or stone texture.
+- Location: Wellness page.
+
+# --- SERVICES / SECURITY ---
+/images/services/security-protection.jpg
+- Description: Silhouette of a security agent or close-up of an earpiece/suit texture.
+- Location: Executive Protection page.
+
+/images/services/security-transport.jpg
+- Description: Armored SUV convoy or black SUV wheel in motion.
+- Location: Secure Transportation page.
+
+# --- SERVICES / SPECIALIZED ---
+/images/services/relocation.jpg
+- Description: Modern luxury apartment interior or architectural detail.
+- Location: Relocation Services page.
+
+/images/services/pet.jpg
+- Description: Elegant dog on a leather seat or private jet cabin.
+- Location: Pet Concierge page.
+
+/images/services/gifts.jpg
+- Description: Wrapped luxury gift box or detail of a ribbon.
+- Location: Gift Sourcing page.
+
+# --- MEMBERSHIP ---
+/images/membership-hero.jpg
+- Description: Abstract texture of black card stock or a vault door.
+- Location: Membership page.
+

@@ -1,28 +1,28 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
-const inter = Inter({
+const inter = Inter({ 
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
+  variable: '--font-inter',
+  display: 'swap',
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: '--font-jetbrains',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: {
-    template: "%s | Detailed Travel Group",
-    default: "Detailed Travel Group - Premier Luxury Concierge",
-  },
-  description: "New York's premier luxury concierge service with global reach. Private aviation, executive protection, and exclusive lifestyle management.",
-  keywords: ["luxury concierge", "private aviation", "executive protection", "NYC concierge", "lifestyle management"],
+  title: "Detailed Travel Group | NYC Luxury Concierge & Logistics",
+  description: "New York's premier luxury concierge and logistics partner. Executive transportation, major event access, and lifestyle management.",
 };
 
 export default function RootLayout({
@@ -31,13 +31,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans bg-background text-text-main antialiased">
-        <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}>
+      <body className="bg-white text-black antialiased selection:bg-black selection:text-white">
+        <div className="grain-overlay fixed inset-0 pointer-events-none z-[9999] opacity-[0.05]" />
+        {children}
       </body>
     </html>
   );

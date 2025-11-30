@@ -2,40 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --font-playfair: 'Playfair Display', serif;
-    --font-inter: 'Inter', sans-serif;
-  }
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
 
-  html {
-    scroll-behavior: smooth;
-  }
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  cursor: crosshair;
+}
 
-  body {
-    @apply bg-white text-neutral-900 font-sans antialiased;
-  }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-playfair text-[#0A192F];
-  }
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+/* Grain Overlay */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Hover Reveal Image Effect */
+.hover-reveal-img {
+  filter: grayscale(100%) contrast(120%);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .hover-reveal-img {
+  filter: grayscale(0%) contrast(100%);
+  transform: scale(1.02);
 }
 
 @layer utilities {
+  .bg-zinc-100 {
+    background-color: #f5f5f5 !important;
+  }
+  .bg-zinc-900 {
+    background-color: #171717 !important;
+  }
+  .bg-zinc-950 {
+    background-color: #0a0a0a !important;
+  }
+  .text-zinc-900 {
+    color: #171717 !important;
+  }
+  .hover\:bg-zinc-800:hover {
+    background-color: #262626 !important;
+  }
+  .hover\:bg-zinc-950:hover {
+    background-color: #0a0a0a !important;
+  }
+  
   .text-balance {
     text-wrap: balance;
-  }
-
-  .reveal-text {
-    @apply opacity-0 translate-y-4 transition-all duration-700 ease-out;
-  }
-
-  .reveal-text.visible {
-    @apply opacity-100 translate-y-0;
   }
 }

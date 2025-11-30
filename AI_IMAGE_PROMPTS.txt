@@ -1,0 +1,55 @@
+# AI IMAGE PROMPTS - DETAILED TRAVEL GROUP
+# Copy these prompts into Gemini Advanced, Midjourney v6, or DALL-E 3.
+# Aesthetic: "Editorial Brutalist", Black & White, High Contrast, Film Grain (Leica M6/Ilford HP5), Flash Photography style.
+
+# --- HOME ---
+# /images/nyc-cityscape.jpg
+Prompt 1: A high-contrast, black and white film photography shot of the New York City skyline at night from a helicopter. Motion blur on the city lights below. Grainy texture like Ilford HP5 film. Brutalist composition, ominous but luxurious. No color.
+
+# --- SERVICES / TRANSPORTATION ---
+# /images/services/chauffeur-hero.jpg
+Prompt 2: Black and white close-up photography of a black Mercedes S-Class door handle and sleek bodywork. Abstract, minimalist, high contrast. Reflection of city lights on the paint. "Old money" aesthetic. Flash photography style.
+
+# /images/services/airport-hero.jpg
+Prompt 3: Black and white cinematic shot of a private jet wing on a rainy tarmac at night. High contrast, dramatic lighting. Silhouette of a luxury SUV waiting nearby. Film grain texture.
+
+# /images/services/fleet-sclass.jpg
+Prompt 4: Studio lighting photography of a black Mercedes S-Class sedan, side profile, black background. Monochrome, sleek, sharp details on the rims. Automotive editorial style.
+
+# /images/services/fleet-escalade.jpg
+Prompt 5: Studio lighting photography of a black Cadillac Escalade ESV, front ¾ view, black background. Commanding presence, monochrome, high contrast reflections.
+
+# --- SERVICES / LIFESTYLE ---
+# /images/services/dining.jpg
+Prompt 6: Flash photography, black and white shot of a white tablecloth dining table in a dark, exclusive restaurant. Crystal wine glasses, silverware, high contrast shadows. "Paparazzi at a gala" vibe but elegant.
+
+# /images/services/shopping.jpg
+Prompt 7: Black and white macro photography of a luxury leather handbag texture or a watch face. Abstract, high detail, grainy film texture. Minimalist composition.
+
+# /images/services/entertainment.jpg
+Prompt 8: Black and white photography of a concert crowd from behind, silhouetted against bright stage lights. Atmospheric, smoky, high energy but abstract.
+
+# /images/services/wellness.jpg
+Prompt 9: Black and white minimalist photography of a spa interior. Dark stone textures, still water reflection, dramatic shaft of light. Brutalist architecture style.
+
+# --- SERVICES / SECURITY ---
+# /images/services/security-protection.jpg
+Prompt 10: Cinematic black and white shot of a security detail. Silhouette of a man in a suit with an earpiece, blurry background of a paparazzi crowd. High contrast, "bodyguard" aesthetic.
+
+# /images/services/security-transport.jpg
+Prompt 11: Action shot in black and white of a black armored SUV convoy moving fast on a highway. Motion blur background, sharp focus on the lead vehicle. Gritty, cinematic.
+
+# --- SERVICES / SPECIALIZED ---
+# /images/services/relocation.jpg
+Prompt 12: Interior design photography, black and white. A modern, minimalist luxury penthouse living room with floor-to-ceiling windows overlooking a city. Stark shadows, high contrast.
+
+# /images/services/pet.jpg
+Prompt 13: Black and white portrait of a Weimaraner or Doberman dog sitting elegantly on a leather private jet seat. Flash photography, high fashion style.
+
+# /images/services/gifts.jpg
+Prompt 14: Black and white close-up of a hand holding a ribbon-wrapped black gift box. High contrast, dramatic lighting, focus on the texture of the ribbon and box.
+
+# --- MEMBERSHIP ---
+# /images/membership-hero.jpg
+Prompt 15: Abstract black and white photography of a heavy steel bank vault door or a matte black credit card texture. Macro detail, metallic, secure, industrial luxury.
+

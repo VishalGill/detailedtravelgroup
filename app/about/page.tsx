@@ -1,177 +1,114 @@
-import { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'About Us',
-  description: 'Learn about Detailed Travel Group, your premier luxury travel concierge dedicated to creating extraordinary experiences.',
-};
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import Image from 'next/image';
 
 export default function AboutPage() {
   return (
-    <div className="pt-[110px] pb-20">
-      <div className="max-w-[1400px] mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-playfair font-extrabold mb-6">
-            About Detailed Travel Group
-          </h1>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            Redefining luxury travel through personalized service, exclusive access, and unwavering attention to detail
+    <main className="min-h-screen bg-black text-white">
+      <Header />
+      
+      {/* Hero */}
+      <section className="pt-40 pb-20 px-6 md:px-24">
+        <span className="font-mono text-xs text-white/50 uppercase tracking-widest block mb-4">
+          ABOUT / PHILOSOPHY
+        </span>
+        <h1 className="font-serif text-6xl md:text-9xl text-white mb-12">
+          THE<br />STANDARD
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <p className="font-sans text-xl font-light text-white/70 border-l border-white/20 pl-6">
+            Detailed Travel Group was born from a simple observation: Luxury travel had become commoditized. We exist to return it to an art form.
           </p>
         </div>
+      </section>
 
-        {/* Mission Section */}
-        <section className="mb-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-playfair font-bold mb-6">Our Mission</h2>
-              <p className="text-lg text-neutral-600 mb-4">
-                At Detailed Travel Group, we believe that exceptional travel is about more than reaching a destination—it's about crafting moments that become cherished memories.
-              </p>
-              <p className="text-lg text-neutral-600 mb-4">
-                Our mission is to provide discerning travelers with seamless, sophisticated travel experiences that exceed expectations at every touchpoint. From the moment you contact us to the conclusion of your journey, we handle every detail with precision and care.
-              </p>
-              <p className="text-lg text-neutral-600">
-                We are not just service providers; we are your trusted partners in creating extraordinary experiences that reflect your unique style and preferences.
+      {/* Manifesto */}
+      <section className="py-32 px-6 md:px-24 border-t border-white/10">
+        <div className="max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div className="lg:col-span-5">
+            <h2 className="font-serif text-4xl mb-8">Not A Booking Engine</h2>
+            <p className="font-sans text-lg font-light text-white/70 mb-8">
+              In an age of algorithms and aggregators, we are the human element. We are operators, not just brokers. We own our fleet, we know the General Managers by name, and we walk the venues before you arrive.
+            </p>
+            <p className="font-sans text-lg font-light text-white/70">
+              Our team is comprised of former executive protection agents, logistics experts, and lifestyle managers who have served the world's most demanding principals.
+            </p>
+          </div>
+          <div className="lg:col-span-7 relative h-[600px] bg-zinc-900 group overflow-hidden">
+             {/* Placeholder for Team/Office Image */}
+             <div className="absolute inset-0 flex items-center justify-center">
+               <span className="font-mono text-xs text-white/30">IMAGE: HQ / TEAM AT WORK</span>
+             </div>
+             <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+          </div>
+        </div>
+      </section>
+
+      {/* The Team Grid */}
+      <section className="py-32 px-6 md:px-24 bg-white text-black">
+        <div className="max-w-[1800px] mx-auto">
+          <h2 className="font-serif text-6xl mb-24">LEADERSHIP</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/10 border border-black/10">
+            {/* Team Member 1 */}
+            <div className="bg-white p-12 flex flex-col border-b md:border-b-0 md:border-r border-black/10">
+              <span className="font-mono text-xs text-black/50 uppercase tracking-widest mb-4">Founder & CEO</span>
+              <h3 className="font-serif text-3xl mb-6">Managing Director</h3>
+              <p className="font-sans text-black/60 mb-8">
+                Former logistics coordinator for F1 teams and diplomatic security details.
               </p>
             </div>
-            <div className="bg-neutral-100 rounded-2xl p-12 text-center">
-              <div className="text-6xl mb-4">🌍</div>
-              <h3 className="text-2xl font-playfair font-bold mb-4">
-                Global Excellence
-              </h3>
-              <p className="text-neutral-600">
-                Serving clients worldwide with the same dedication to quality and attention to detail that defines luxury travel.
+
+            {/* Team Member 2 */}
+            <div className="bg-white p-12 flex flex-col border-b md:border-b-0 md:border-r border-black/10">
+              <span className="font-mono text-xs text-black/50 uppercase tracking-widest mb-4">Head of Concierge</span>
+              <h3 className="font-serif text-3xl mb-6">Director of Lifestyle</h3>
+              <p className="font-sans text-black/60 mb-8">
+                15 years experience managing ultra-high-net-worth family offices in NYC and London.
+              </p>
+            </div>
+
+            {/* Team Member 3 */}
+            <div className="bg-white p-12 flex flex-col">
+              <span className="font-mono text-xs text-black/50 uppercase tracking-widest mb-4">Head of Security</span>
+              <h3 className="font-serif text-3xl mb-6">Director of Operations</h3>
+              <p className="font-sans text-black/60 mb-8">
+                Special operations veteran specializing in threat assessment and secure transport.
               </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Values */}
-        <section className="mb-20 bg-neutral-50 rounded-3xl p-12 md:p-16">
-          <h2 className="text-4xl font-playfair font-bold mb-12 text-center">
-            Our Core Values
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl mb-4">⭐</div>
-              <h3 className="text-xl font-playfair font-bold mb-3">Excellence</h3>
-              <p className="text-neutral-600">
-                We pursue perfection in every interaction, ensuring the highest standards of service quality.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">🤝</div>
-              <h3 className="text-xl font-playfair font-bold mb-3">Integrity</h3>
-              <p className="text-neutral-600">
-                Transparency, honesty, and discretion are the foundation of our client relationships.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">💎</div>
-              <h3 className="text-xl font-playfair font-bold mb-3">Personalization</h3>
-              <p className="text-neutral-600">
-                Every client is unique, and we tailor our services to match individual preferences and needs.
-              </p>
-            </div>
+      {/* Values */}
+      <section className="py-32 px-6 md:px-24 bg-black text-white border-t border-white/20">
+        <div className="max-w-[1800px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <span className="font-mono text-4xl block mb-4 text-white/30">01</span>
+            <h3 className="font-serif text-2xl mb-4">Discretion</h3>
+            <p className="text-sm text-white/60">Privacy is our default setting. We do not disclose client lists or discuss movements.</p>
           </div>
-        </section>
-
-        {/* Services Overview */}
-        <section className="mb-20">
-          <h2 className="text-4xl font-playfair font-bold mb-12 text-center">
-            What We Offer
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white border border-neutral-200 rounded-2xl p-8">
-              <h3 className="text-2xl font-playfair font-bold mb-4">Transportation</h3>
-              <ul className="space-y-3 text-neutral-600">
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Premium black car service with professional chauffeurs</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Private jet charters for domestic and international travel</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Helicopter transfers and yacht charters</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white border border-neutral-200 rounded-2xl p-8">
-              <h3 className="text-2xl font-playfair font-bold mb-4">VIP Services</h3>
-              <ul className="space-y-3 text-neutral-600">
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Airport meet and greet with fast-track security</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Private lounge access and concierge assistance</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Event access and VIP experiences</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white border border-neutral-200 rounded-2xl p-8">
-              <h3 className="text-2xl font-playfair font-bold mb-4">Lifestyle</h3>
-              <ul className="space-y-3 text-neutral-600">
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Exclusive restaurant reservations worldwide</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Private chef arrangements and culinary experiences</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Luxury shopping and personal styling services</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white border border-neutral-200 rounded-2xl p-8">
-              <h3 className="text-2xl font-playfair font-bold mb-4">Accommodations</h3>
-              <ul className="space-y-3 text-neutral-600">
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Five-star hotel bookings and suite upgrades</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Private villa and estate rentals</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Unique and exclusive property access</span>
-                </li>
-              </ul>
-            </div>
+          <div>
+            <span className="font-mono text-4xl block mb-4 text-white/30">02</span>
+            <h3 className="font-serif text-2xl mb-4">Precision</h3>
+            <p className="text-sm text-white/60">Logistics measured in seconds, not minutes. Every detail triple-checked.</p>
           </div>
-        </section>
+          <div>
+            <span className="font-mono text-4xl block mb-4 text-white/30">03</span>
+            <h3 className="font-serif text-2xl mb-4">Access</h3>
+            <p className="text-sm text-white/60">Doors open for us that remain closed to others. The result of decades of relationship building.</p>
+          </div>
+          <div>
+            <span className="font-mono text-4xl block mb-4 text-white/30">04</span>
+            <h3 className="font-serif text-2xl mb-4">Availability</h3>
+            <p className="text-sm text-white/60">24/7/365. No call centers. You speak directly to a decision-maker.</p>
+          </div>
+        </div>
+      </section>
 
-        {/* CTA */}
-        <section className="bg-black text-white rounded-3xl p-12 md:p-16 text-center">
-          <h2 className="text-4xl font-playfair font-bold mb-6">
-            Experience the Difference
-          </h2>
-          <p className="text-xl text-neutral-300 mb-8 max-w-2xl mx-auto">
-            Discover how Detailed Travel Group can transform your travel experiences with personalized service and exclusive access.
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center bg-white text-black rounded-xl px-8 py-4 font-semibold hover:bg-neutral-100 transition-colors"
-          >
-            Contact Our Team
-          </a>
-        </section>
-      </div>
-    </div>
+      <Footer />
+    </main>
   );
 }

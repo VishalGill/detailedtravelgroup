@@ -1,76 +1,57 @@
-import ServiceCard from '@/components/ServiceCard';
-import Link from 'next/link';
+'use client';
 
-export default function ServicesPage() {
-    const services = [
-        {
-            title: 'Private Aviation',
-            description: 'Global reach on your terms. From light jets for regional hops to ultra-long-range aircraft for intercontinental travel, we curate the perfect fleet for your journey.',
-            imageSrc: '/images/jet.png',
-            href: '/aviation',
-        },
-        {
-            title: 'Executive Protection',
-            description: 'Uncompromising safety. Our elite security teams provide discreet protection for high-profile individuals, families, and corporate executives worldwide.',
-            imageSrc: '/images/security.png',
-            href: '/security',
-        },
-        {
-            title: 'Lifestyle Management',
-            description: 'Curating the exceptional. From priority dining reservations at the world\'s most exclusive restaurants to VIP access at sold-out events.',
-            imageSrc: '/images/dining.png',
-            href: '/lifestyle',
-        },
-        {
-            title: 'Global Concierge',
-            description: 'Your dedicated team for the impossible. Rare acquisitions, relocation services, and bespoke travel itineraries crafted to perfection.',
-            imageSrc: '/images/concierge.png',
-            href: '/services', // Self-referential for now, or could be a specific contact anchor
-        },
-    ];
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { ServiceGrid } from '@/components/ui/ServiceGrid';
 
-    return (
-        <div className="bg-white pt-20">
-            {/* Header */}
-            <section className="py-24 px-6 bg-neutral-50">
-                <div className="max-w-[1400px] mx-auto text-center">
-                    <h1 className="text-5xl md:text-7xl font-playfair font-bold text-primary-dark mb-6">
-                        Our Services
-                    </h1>
-                    <p className="text-xl text-neutral-500 max-w-2xl mx-auto font-light">
-                        A comprehensive suite of luxury services designed to reclaim your time and elevate your lifestyle.
-                    </p>
-                </div>
-            </section>
+export default function ServicesHub() {
+  const categories = [
+    {
+      id: "TRANSPORTATION",
+      title: "Ground & Air Logistics",
+      description: "The foundation of our service. Whether it's an S-Class for a board meeting or a Gulfstream for a holiday, we control the movement.",
+      link: "/services/transportation",
+      image: "/images/services/transport.jpg"
+    },
+    {
+      id: "EVENTS",
+      title: "Major Event Access",
+      description: "From the Paddock Club at F1 Miami to the red carpet at the Met Gala. We provide access, logistics, and on-site management.",
+      link: "/services/events",
+      image: "/images/services/events.jpg"
+    },
+    {
+      id: "LIFESTYLE",
+      title: "Lifestyle Management",
+      description: "Restaurant reservations, personal shopping, and wellness. We handle the details of your life so you can enjoy living it.",
+      link: "/services/lifestyle",
+      image: "/images/services/lifestyle.jpg"
+    },
+    {
+      id: "SECURITY",
+      title: "Executive Protection",
+      description: "Discreet, professional security for high-profile individuals. Secure transport, residential security, and travel risk assessment.",
+      link: "/services/security",
+      image: "/images/services/security.jpg"
+    }
+  ];
 
-            {/* Services Grid */}
-            <section className="py-24 px-6">
-                <div className="max-w-[1400px] mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {services.map((service) => (
-                            <ServiceCard key={service.title} {...service} />
-                        ))}
-                    </div>
-                </div>
-            </section>
+  return (
+    <main className="min-h-screen bg-black text-white">
+      <Header />
+      
+      <div className="pt-40 pb-20 px-6 md:px-24">
+        <h1 className="font-serif text-6xl md:text-9xl text-white mb-8">
+          THE<br />INDEX
+        </h1>
+        <p className="font-sans text-xl font-light text-white/60 max-w-2xl border-l border-white/20 pl-6">
+          A comprehensive directory of our capabilities. We operate at the intersection of logistics, luxury, and lifestyle.
+        </p>
+      </div>
 
-            {/* CTA */}
-            <section className="py-24 bg-primary-dark text-center px-6">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-playfair font-bold text-white mb-8">
-                        Don't see what you're looking for?
-                    </h2>
-                    <p className="text-neutral-300 mb-12 text-lg">
-                        Our team specializes in bespoke requests. If you can imagine it, we can arrange it.
-                    </p>
-                    <Link
-                        href="/contact"
-                        className="inline-block px-10 py-4 border border-white text-white font-bold tracking-widest uppercase hover:bg-white hover:text-primary-dark transition-colors"
-                    >
-                        Contact Concierge
-                    </Link>
-                </div>
-            </section>
-        </div>
-    );
+      <ServiceGrid title="CATEGORIES" items={categories} />
+
+      <Footer />
+    </main>
+  );
 }
